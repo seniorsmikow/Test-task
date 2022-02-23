@@ -12,7 +12,7 @@ export const PostsBlock = () => {
 
   const sortPostsByDate = (posts) => {
     setPosts(
-      posts.sort(function (a, b) {
+      posts.sort((a, b) => {
         if (a.date.split("-").join() > b.date.split("-").join()) {
           return -1;
         }
@@ -20,23 +20,18 @@ export const PostsBlock = () => {
     );
   };
 
-  const getPosts = () => {
+  const getPosts = async () => {
     try {
-      fetch("blog_posts.json", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          sortPostsByDate(data);
-        });
+      const response = await fetch("blog_posts.json");
+      if (response) {
+        const data = await response.json();
+        sortPostsByDate(data);
+      } else {
+        alert("Произошла ошибка");
+      }
       setActive(false);
-    } catch (error) {
-      alert("Произошла ошибка!");
+    } catch (e) {
+      alert("Произошла ошибка " + e.message);
     }
   };
 

@@ -3,6 +3,7 @@ import styles from "./Slider.module.scss";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Feedback } from "../Feedback/Feedback";
+import { Loader } from "../Loader/Loader";
 
 export const Slider = () => {
   const [data, setData] = useState(null);
@@ -11,24 +12,19 @@ export const Slider = () => {
   const [isFinishNext, setIsFinishNext] = useState(false);
   const [isFinishPrev, setIsFinishPrev] = useState(false);
 
-  const getFeedback = () => {
+  const getFeedback = async () => {
     try {
       setLoading(true);
-      fetch("feedback_data.json", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          setData(data);
-        });
+      const response = await fetch("feedback_data.json");
+      if (response) {
+        const data = await response.json();
+        setData(data);
+      } else {
+        alert("Произошла ошибка");
+      }
       setLoading(false);
-    } catch (error) {
-      alert("Произошла ошибка!");
+    } catch (e) {
+      alert("Произошла ошибка " + e.message);
     } finally {
       setLoading(false);
     }
@@ -61,39 +57,41 @@ export const Slider = () => {
   return (
     <div className={styles.slider__wrapper}>
       <div className={styles.slider__feedback_wrapper}>
-        {!loading ? (
-          <div className={styles.main__feedback}>
-            {data &&
-              data.map((el, index) => {
-                return (
-                  <div
-                    key={index}
-                    className={styles.slider__block_wrapper}
-                    style={{ transform: `translateX(${posX}%)` }}
-                  >
-                    <Feedback
-                      key={index}
-                      text={el.text}
-                      name={el.name}
-                      user={el.instagram_username}
-                    />
-                  </div>
-                );
-              })}
-          </div>
+        {loading ? (
+          <Loader />
         ) : (
-          <div className={styles.main}>
-            <div className={styles.slider__img_wrapper}>
-              <Feedback
-                text={`I registered on the AidaForm website, having stumbled 
+          <div className={styles.slider__feedback_wrapper}>
+            <div className={styles.main__feedback}>
+              {data ? (
+                data.map((el, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={styles.slider__block_wrapper}
+                      style={{ transform: `translateX(${posX}%)` }}
+                    >
+                      <Feedback
+                        key={index}
+                        text={el.text}
+                        name={el.name}
+                        user={el.instagram_username}
+                      />
+                    </div>
+                  );
+                })
+              ) : (
+                <div className={styles.slider__block_wrapper}>
+                  <Feedback
+                    text={`I registered on the AidaForm website, having stumbled 
                   upon one of the form templates, which I really liked. 
                   My first form, which is still active by the way, was published 
                   20 minutes after I found the AidaForm website and created an account!`}
-                name={"Ben Johnson"}
-                user={"web-store owner"}
-              />
+                    name={"Ben Johnson"}
+                    user={"web-store owner"}
+                  />
+                </div>
+              )}
             </div>
-            ); })}
           </div>
         )}
       </div>
