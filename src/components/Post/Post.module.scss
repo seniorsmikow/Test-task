@@ -1,0 +1,60 @@
+@import "../../styles/colors.scss";
+
+.post__wrapper {
+    height: 650px;
+    width: 464px;
+    background-color: $white;
+    border-radius: 12px;
+    color: $dark;
+    margin: 0 auto;
+    margin: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.post__wrapper img {
+    max-width: 440px;
+    max-height: 486px;
+}
+
+.post__wrapper p {
+    width: 384px;
+    height: 110px;
+    margin: 20px 40px;
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+@media (max-width: 320px) {
+    .post__wrapper {
+        width: 296px;
+        height: 422px;
+        background-color: $white;
+        border-radius: 12px;
+        color: $dark;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px;
+        cursor: pointer;
+    }
+    .post__wrapper img {
+        max-width: 280px;
+        max-height: 310px;
+    }
+    .post__wrapper p {
+        width: 100%;
+        height: auto;
+        margin-top: 40px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+}

@@ -1,0 +1,15 @@
+@import "../../styles/colors.scss";
+
+.main__block_wrapper {
+    width: 1440px;
+    height: 100%;
+    background-color: $s-light;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+@media (max-width: 1200px) {
+    .main__block_wrapper {
+        width: 1200px;
+    }
+}
