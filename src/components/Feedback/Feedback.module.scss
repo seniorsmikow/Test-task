@@ -5,6 +5,7 @@
     button {
         background-color: rgba(0, 0, 0, 0);
         color: $white;
+        cursor: pointer;
     }
 }
 
@@ -54,8 +55,12 @@
     .slider__comment_wrapper {
         padding: 10px;
         margin-bottom: 20px;
+        button {
+            display: none;
+        }
     }
     .slider__comment_text {
+        height: auto;
         overflow: hidden;
         padding: 10px;
         font-style: normal;
