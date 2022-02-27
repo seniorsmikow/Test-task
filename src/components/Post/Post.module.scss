@@ -23,11 +23,17 @@
 
 .post__wrapper p {
     width: 384px;
-    height: 110px;
+    height: 111px;
     margin: 20px 40px;
-    margin-top: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
     font-size: 24px;
     font-weight: 300;
+    line-height: 130%;
+    letter-spacing: 0.2px;
 }
 
 @media (max-width: 320px) {
@@ -38,12 +44,11 @@
         border-radius: 12px;
         color: $dark;
         margin: 0 auto;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
+        margin-bottom: 12px;
+        padding: 8px 8px 20px 8px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 12px;
         cursor: pointer;
     }
     .post__wrapper img {
@@ -51,10 +56,13 @@
         max-height: 310px;
     }
     .post__wrapper p {
-        width: 100%;
-        height: auto;
-        margin-top: 40px;
+        width: 280px;
         font-size: 18px;
-        font-weight: 300;
+        margin-top: 20px;
+        padding-top: 0px;
+        line-height: 120%;
+        display: flex;
+        align-items: center;
+        text-align: center;
     }
 }

@@ -11,21 +11,23 @@ export const Feedback = ({ text, name, user }) => {
   };
 
   return (
-    <div className={styles.slider__comment_wrapper}>
-      <p
-        className={
-          show ? styles.slider__full_comment : styles.slider__comment_text
-        }
-      >
-        {text}
-      </p>
-      <button onClick={toggleShow}>
-        {show ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-      </button>
-      <div className={styles.slider__user_wrapper}>
-        <span className={styles.slider__comment_name}>{name},</span>
-        <small className={styles.slider__comment_user}>{user}</small>
+    <>
+      <div className={styles.feedback__comment_wrapper}>
+        <div
+          className={
+            show ? styles.slider__full_comment : styles.slider__comment_text
+          }
+        >
+          {text}
+        </div>
+        <button onClick={toggleShow}>
+          {show ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+        </button>
       </div>
-    </div>
+      <div className={styles.feedback__user_wrapper}>
+        <div className={styles.feedback__comment_name}>{name},</div>
+        <div className={styles.feedback__comment_user}>{user}</div>
+      </div>
+    </>
   );
 };

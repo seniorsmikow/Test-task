@@ -1,6 +1,7 @@
 @import "../../styles/colors.scss";
 
-.slider__comment_wrapper {
+.feedback__comment_wrapper {
+    margin-left: -60px;
     margin-bottom: 20px;
     button {
         background-color: rgba(0, 0, 0, 0);
@@ -10,84 +11,96 @@
 }
 
 .slider__comment_text {
-    width: 824px;
-    height: 290px;
+    width: 830px;
+    height: 280px;
     overflow: hidden;
     padding: 10px;
+    margin-left: 178px;
+    ///////////////@at-root
     font-style: normal;
-    font-weight: normal;
-    font-size: 38px;
     line-height: 120%;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     color: $white;
     font-weight: 400;
     font-size: 38px;
-    line-height:  45.6px;
-    text-align: justify;
+    text-align: left;
 }
 
 .slider__full_comment {
     @extend .slider__comment_text;
     height: auto;
+    overflow: visible;
 }
 
-.slider__comment_name {
-    margin-bottom: 50px;
-    margin-left: 10px;
-}
-.slider__user_wrapper {
-    margin-top: 20px;
+.feedback__user_wrapper {
+    position: absolute;
+    left: 260px;
+    margin-top: 316px;
+    //margin-left: 2px;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: 0.2px;
     color: $white;
 }
 
-.slider__comment_name {
+.feedback__comment_user {
+    margin-left: 10px;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: 0.2px;
+    color: $white;
+}
+.feedback__comment_name {
+    margin-bottom: 50px;
+    margin-left: 10px;
     font-weight: 600;
 }
 
-.slider__comment_user {
-    margin-left: 10px;
-    font-size: 18px;
-}
-
 @media (max-width: 320px) {
-    .slider__comment_wrapper {
-        padding: 10px;
-        margin-bottom: 20px;
+    .feedback__comment_wrapper {
+        height: 318px;
+        margin-top: -167px;
+        margin-left: 30px;
+        position: relative;
         button {
             display: none;
         }
     }
     .slider__comment_text {
-        height: auto;
+        margin-left: -26px;
+        width: 264px;
+        height: 320px;
         overflow: hidden;
-        padding: 10px;
         font-style: normal;
-        font-weight: normal;
-        font-size: 38px;
-        line-height: 120%;
-        letter-spacing: 0.8px;
-        color: $white;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 24px;
-        line-height:  45.6px;
-        text-align: justify;
+        line-height: 130%;
+        letter-spacing: 0.2px;
+        color: $white;
+        text-align: left;
     }
-    .slider__user_wrapper {
+    .feedback__user_wrapper {
+        position: absolute;
+        left: 264px;
         display: flex;
         flex-direction: column;
-        margin-top: 20px;
         text-align: left;
-        font-size: 18px;
         color: $white;
-    }
-    .slider__comment_name {
+        margin-top: 220px;
         font-weight: 600;
-    }
-    .slider__comment_user {
-        margin-top: -30px;
-        margin-left: 10px;
         font-size: 16px;
+        line-height: 140%;
+        letter-spacing: 0.2px;
+    }
+    .feedback__comment_name {
+        margin-bottom: 50px;
+        margin-left: -250px;
+    }
+    .feedback__comment_user {
+        margin-top: -50px;
+        margin-left: -250px;
+        font-size: 16px;
+        font-weight: 400;
     }
 }

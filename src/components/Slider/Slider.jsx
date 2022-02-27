@@ -82,7 +82,7 @@ export const Slider = () => {
               ) : (
                 <div className={styles.slider__block_wrapper}>
                   <Feedback
-                    text={`I registered on the AidaForm website, having stumbled 
+                    text={`“I registered on the AidaForm website, having stumbled 
                   upon one of the form templates, which I really liked. 
                   My first form, which is still active by the way, was published 
                   20 minutes after I found the AidaForm website and created an account!`}
@@ -105,7 +105,7 @@ export const Slider = () => {
           }
           onClick={toPrev}
         >
-          <ArrowBackIosNewIcon />
+          <ArrowBackIosNewIcon fontSize="small" />
         </button>
         <button
           className={
@@ -115,7 +115,7 @@ export const Slider = () => {
           }
           onClick={toNext}
         >
-          <ArrowForwardIosIcon />
+          <ArrowForwardIosIcon fontSize="small" />
         </button>
       </div>
     </div>
